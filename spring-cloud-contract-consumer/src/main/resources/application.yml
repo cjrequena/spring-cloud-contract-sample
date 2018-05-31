@@ -25,3 +25,10 @@ logging:
     console: '%highlight{%-5p|%d{ISO8601}{GMT}|trace=%X{X-B3-TraceId},span=%X{X-B3-SpanId}|%c{1}|%m%ex%n}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=blue bold, DEBUG=green bold, TRACE=blue}'
     file: '%-5p|%d{ISO8601}{GMT}|trace=%X{X-B3-TraceId},span=%X{X-B3-SpanId}|%c{1}|%m%ex%n'
   config: classpath:log4j2-local.xml
+
+stubrunner:
+  workOffline: false
+  ids:
+    - com.sample.springcloudcontract:spring-cloud-contract-producer:+:stubs:8080
+  idsToServiceIds:
+    spring-cloud-contract-producer: spring-cloud-contract-producer
