@@ -31,4 +31,4 @@ stubrunner:
   ids:
     - com.sample.springcloudcontract:spring-cloud-contract-producer:+:stubs:8080
   idsToServiceIds:
-    spring-cloud-contract-producer: spring-cloud-contract-producer
+    spring-cloud-contract-producer: calculator-service
