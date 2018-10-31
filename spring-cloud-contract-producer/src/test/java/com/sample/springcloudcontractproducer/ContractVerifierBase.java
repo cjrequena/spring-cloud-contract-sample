@@ -1,10 +1,10 @@
 package com.sample.springcloudcontractproducer;
 
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
-import lombok.extern.log4j.Log4j2;
 import org.junit.Before;
-import org.junit.Ignore;
+import org.junit.FixMethodOrder;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,14 +25,15 @@ import org.springframework.web.context.WebApplicationContext;
  * @see
  * @since JDK1.8
  */
-@Ignore
-@Log4j2
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = { MainApplication.class }, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMessageVerifier
 @AutoConfigureJsonTesters
 @DirtiesContext
-@ActiveProfiles({"local"})
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@ActiveProfiles({
+        "local"
+})
 public class ContractVerifierBase {
 
   @Autowired

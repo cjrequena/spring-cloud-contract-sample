@@ -25,11 +25,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {MainApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-@AutoConfigureMockMvc
 @AutoConfigureMessageVerifier
 @AutoConfigureJsonTesters
-@AutoConfigureStubRunner
 @DirtiesContext
+@AutoConfigureMockMvc
+@AutoConfigureStubRunner
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @ActiveProfiles({
   "local"
