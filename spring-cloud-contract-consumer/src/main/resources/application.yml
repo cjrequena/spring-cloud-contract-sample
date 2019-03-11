@@ -27,8 +27,9 @@ logging:
   config: classpath:log4j2-local.xml
 
 stubrunner:
+  stubsMode: REMOTE
   workOffline: false
   ids:
-    - com.sample.springcloudcontract:spring-cloud-contract-producer:+:stubs:8080
+  - com.sample.springcloudcontract:spring-cloud-contract-producer:+:stubs:8080
   idsToServiceIds:
     spring-cloud-contract-producer: calculator-service

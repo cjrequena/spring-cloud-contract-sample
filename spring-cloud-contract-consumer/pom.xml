@@ -24,6 +24,12 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-contract-verifier</artifactId>
+            <version>${spring-cloud-contract.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-contract-wiremock</artifactId>
             <version>${spring-cloud-contract.version}</version>
             <scope>test</scope>
@@ -71,6 +77,27 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <!---->
+            <plugin>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+                <version>${spring-cloud-contract.version}</version>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>convert</goal>
+                            <goal>generateStubs</goal>
+                            <goal>generateTests</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- Provide the base class for your auto-generated tests -->
+                    <nameSuffixForTests>IT</nameSuffixForTests>
+                    <baseClassForTests>com.sample.springcloudcontractconsumer.ContractVerifierBase</baseClassForTests>
+                </configuration>
             </plugin>
         </plugins>
     </build>
